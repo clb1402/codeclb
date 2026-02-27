@@ -2,53 +2,82 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSM Widget</title>
+    <title>CSM Widget Test</title>
     <style>
-      html,
-      body {
+      html, body {
         margin: 0;
         padding: 0;
         height: 100%;
+        font-family: system-ui, sans-serif;
+        background: #f4f5f7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        width: 400px;
+        height: 600px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding: 16px;
+        box-sizing: border-box;
+        position: relative;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0 0 8px;
+      }
+      p {
+        font-size: 14px;
+        margin: 0 0 12px;
+        color: #555;
       }
     </style>
   </head>
   <body>
-    <script>
-      window.csmWidgetSettings = {
-        widgetId: "1bc913a3-f563-44a0-aea7-2cff2034ded6",
-        site: "one-atlas-vkyd.atlassian.net",
-        cloudId: "83f8f2d4-5fb9-40a4-83cb-e80d8477d95b",
-      };
-    </script>
+    <div class="container">
+      <h1>CSM Widget Test Page</h1>
+      <p>If you see a chat bubble here, the widget is working.</p>
 
-    <script>
-      (function () {
-        if (typeof window.CSM === "undefined") {
-          var CSM = function () {
-            CSM.__q__.push(arguments);
-          };
-          CSM.__q__ = [];
-          window.CSM = CSM;
+      <!-- CSM widget snippet -->
+      <script>
+        window.csmWidgetSettings = {
+          widgetId: "1bc913a3-f563-44a0-aea7-2cff2034ded6",
+          site: "one-atlas-vkyd.atlassian.net",
+          cloudId: "83f8f2d4-5fb9-40a4-83cb-e80d8477d95b",
+        };
+      </script>
 
-          var l = function () {
-            var s = document.createElement("script");
-            s.type = "text/javascript";
-            s.async = true;
-            s.src =
-              "https://one-atlas-vkyd.atlassian.net/csm/widget/script.js" +
-              "?widgetId=1bc913a3-f563-44a0-aea7-2cff2034ded6" +
-              "&site=one-atlas-vkyd.atlassian.net" +
-              "&cloudId=83f8f2d4-5fb9-40a4-83cb-e80d8477d95b";
-            document.body.appendChild(s);
-          };
+      <script>
+        (function () {
+          if (typeof window.CSM === "undefined") {
+            var CSM = function () {
+              CSM.__q__.push(arguments);
+            };
+            CSM.__q__ = [];
+            window.CSM = CSM;
 
-          if (document.readyState === "complete") {
-            l();
-          } else {
-            window.addEventListener("load", l);
+            var l = function () {
+              var s = document.createElement("script");
+              s.type = "text/javascript";
+              s.async = true;
+              s.src =
+                "https://one-atlas-vkyd.atlassian.net/csm/widget/script.js" +
+                "?widgetId=1bc913a3-f563-44a0-aea7-2cff2034ded6" +
+                "&site=one-atlas-vkyd.atlassian.net" +
+                "&cloudId=83f8f2d4-5fb9-40a4-83cb-e80d8477d95b";
+              document.body.appendChild(s);
+            };
+
+            if (document.readyState === "complete") {
+              l();
+            } else {
+              window.addEventListener("load", l);
+            }
           }
-        }
-      })();
-    </script>
+        })();
+      </script>
+    </div>
   </body>
 </html>
