@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSM Widget</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      window.csmWidgetSettings = {
+        widgetId: "1bc913a3-f563-44a0-aea7-2cff2034ded6",
+        site: "one-atlas-vkyd.atlassian.net",
+        cloudId: "83f8f2d4-5fb9-40a4-83cb-e80d8477d95b",
+      };
+    </script>
+
+    <script>
+      (function () {
+        if (typeof window.CSM === "undefined") {
+          var CSM = function () {
+            CSM.__q__.push(arguments);
+          };
+          CSM.__q__ = [];
+          window.CSM = CSM;
+
+          var l = function () {
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.async = true;
+            s.src =
+              "https://one-atlas-vkyd.atlassian.net/csm/widget/script.js" +
+              "?widgetId=1bc913a3-f563-44a0-aea7-2cff2034ded6" +
+              "&site=one-atlas-vkyd.atlassian.net" +
+              "&cloudId=83f8f2d4-5fb9-40a4-83cb-e80d8477d95b";
+            document.body.appendChild(s);
+          };
+
+          if (document.readyState === "complete") {
+            l();
+          } else {
+            window.addEventListener("load", l);
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
